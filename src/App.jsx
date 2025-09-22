@@ -1,4 +1,3 @@
-// App.jsx
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Profile from "./Profile";
@@ -8,30 +7,53 @@ import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import Certificate from "./Pages/Certificate";
 import Projects from "./Pages/Projects";
+import ParallaxBackground from "./Components/ParallaxBackground";
 
 function App() {
   return (
-    <div className="flex flex-col md:flex-row gap-1 p-6 bg-gray-100 min-h-screen">
-      {/* Profile Section (fixed width on desktop, full width on mobile) */}
-      <div className="w-full md:w-72 flex-shrink-0">
-        <Profile />
-      </div>
+    <>
+      {/* Move keyframes here for the background crackle effect */}
+      <style>
+        {`
+          @keyframes blueCrackle {
+            0% { opacity: 0; transform: scale(0.5) translateY(0); }
+            20% { opacity: 0.8; transform: scale(1) translateY(-10px); }
+            80% { opacity: 0.8; transform: scale(1) translateY(10px); }
+            100% { opacity: 0; transform: scale(0.5) translateY(0); }
+          }
+        `}
+      </style>
 
-      {/* Body Section (expands on desktop, full width on mobile) */}
-      <div className="flex-1">
-        <Body>
-          <Header />
-          <div className="p-1 md:p-1">
-            <Routes>
-              <Route path="/" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/certificate" element={<Certificate />} />
-              <Route path="/projects" element={<Projects />} />
-            </Routes>
+      <div className="relative min-h-screen">
+        {/* Parallax background */}
+        <ParallaxBackground />
+
+        {/* Flex container for profile and body */}
+        <div className="flex flex-col md:flex-row gap-6 p-6 relative z-10">
+          {/* Profile Section (fixed on desktop) */}
+          <div className="w-full md:w-72 flex-shrink-0">
+            <div className="sticky top-6">
+              <Profile />
+            </div>
           </div>
-        </Body>
+
+          {/* Main Body Section */}
+          <div className="flex-1 sticky top-6">
+            <Body>
+              <Header />
+              <div className="p-0 md:p-0 sticky top-6">
+                <Routes>
+                  <Route path="/" element={<About />} />
+                  <Route path="/projects" element={<Projects />} />
+                  <Route path="/certificate" element={<Certificate />} />
+                  <Route path="/contact" element={<Contact />} />
+                </Routes>
+              </div>
+            </Body>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

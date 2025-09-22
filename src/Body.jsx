@@ -1,13 +1,11 @@
-import React from 'react'
-import dp from './assets/dp.png'
+import React from "react";
 
 function Body(props) {
   return (
-    <div className="card rounded-lg shadow-md bg-white h-full flex flex-col">
-        {props.children}
+    <div className="rounded-2xl shadow-xl p-6 backdrop-blur-md bg-white/10 border border-white/20 text-gray-200">
+      {props.children}
     </div>
-
-  )
+  );
 }
 
-export default Body
+export default Body;

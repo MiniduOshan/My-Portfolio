@@ -6,22 +6,24 @@ function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="bg-gray-100 p-4 shadow-md sticky top-0 z-10">
+    <header className="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl p-4 shadow-lg sticky top-0 z-20">
       <div className="flex justify-between items-center">
         {/* Logo / Title */}
-        <h1 className="text-xl font-bold text-gray-700">My Portfolio</h1>
+        <h1 className="text-xl font-bold text-blue-400 drop-shadow-md">
+          My Portfolio
+        </h1>
 
         {/* Desktop Links */}
         <nav className="hidden md:flex gap-6">
-          <Link to="/" className="text-blue-500 hover:underline">About</Link>
-          <Link to="/contact" className="text-blue-500 hover:underline">Contact</Link>
-          <Link to="/certificate" className="text-blue-500 hover:underline">Certificate</Link>
-          <Link to="/projects" className="text-blue-500 hover:underline">Projects</Link>
+          <Link to="/" className="text-gray-200 hover:text-blue-400 transition">About</Link>
+          <Link to="/contact" className="text-gray-200 hover:text-blue-400 transition">Contact</Link>
+          <Link to="/certificate" className="text-gray-200 hover:text-blue-400 transition">Certificate</Link>
+          <Link to="/projects" className="text-gray-200 hover:text-blue-400 transition">Projects</Link>
         </nav>
 
         {/* Mobile Hamburger */}
         <button
-          className="md:hidden text-gray-700"
+          className="md:hidden text-gray-200"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -31,10 +33,10 @@ function Header() {
       {/* Mobile Menu */}
       {isOpen && (
         <nav className="flex flex-col mt-4 gap-4 md:hidden">
-          <Link to="/" className="text-blue-500 hover:underline" onClick={() => setIsOpen(false)}>About</Link>
-          <Link to="/contact" className="text-blue-500 hover:underline" onClick={() => setIsOpen(false)}>Contact</Link>
-          <Link to="/certificate" className="text-blue-500 hover:underline" onClick={() => setIsOpen(false)}>Certificate</Link>
-          <Link to="/projects" className="text-blue-500 hover:underline" onClick={() => setIsOpen(false)}>Projects</Link>
+          <Link to="/" className="text-gray-200 hover:text-blue-400 transition" onClick={() => setIsOpen(false)}>About</Link>
+          <Link to="/contact" className="text-gray-200 hover:text-blue-400 transition" onClick={() => setIsOpen(false)}>Contact</Link>
+          <Link to="/certificate" className="text-gray-200 hover:text-blue-400 transition" onClick={() => setIsOpen(false)}>Certificate</Link>
+          <Link to="/projects" className="text-gray-200 hover:text-blue-400 transition" onClick={() => setIsOpen(false)}>Projects</Link>
         </nav>
       )}
     </header>
