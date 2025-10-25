@@ -8,11 +8,12 @@ import Contact from "./Pages/Contact";
 import Certificate from "./Pages/Certificate";
 import Projects from "./Pages/Projects";
 import ParallaxBackground from "./Components/ParallaxBackground";
+import Education from "./Pages/Education";
+import Skills from "./Pages/Skills";
 
 function App() {
   return (
     <>
-      {/* Move keyframes here for the background crackle effect */}
       <style>
         {`
           @keyframes blueCrackle {
@@ -25,32 +26,49 @@ function App() {
       </style>
 
       <div className="relative min-h-screen">
-        {/* Parallax background */}
         <ParallaxBackground />
 
-        {/* Flex container for profile and body */}
+        {/* Flex container for profile and body (p-6 sets the 'gap' from viewport edge) */}
         <div className="flex flex-col md:flex-row gap-6 p-6 relative z-10">
-          {/* Profile Section (fixed on desktop) */}
+          
+          {/* Profile Section (This is correct, stays sticky) */}
           <div className="w-full md:w-72 flex-shrink-0">
             <div className="sticky top-6">
               <Profile />
             </div>
           </div>
 
-          {/* Main Body Section */}
-          <div className="flex-1 sticky top-6">
-            <Body>
+          {/* Main Body Section 
+            FIX 1: Make this whole wrapper sticky and give it a fixed height.
+            'h-[calc(100vh-3rem)]' means 100% of viewport height minus the page padding (p-6 is 1.5rem * 2 = 3rem)
+          */}
+          <div className="flex-1 sticky top-6 h-[calc(100vh-3rem)]">
+            {/* FIX 2: Pass classes to Body to make it a flex column 
+              that fills its new sticky parent (h-full).
+            */}
+            <Body className="flex flex-col h-full">
+              
+              {/* Header is no longer sticky, it just sits at the top */}
               <Header />
-              <div className="p-0 md:p-0 sticky top-6">
+
+              {/* FIX 3: This is now the scrolling content area.
+                - 'mt-4' adds space below the header.
+                - 'flex-1' makes it fill all remaining vertical space.
+                - 'overflow-y-auto' makes THIS div scroll, not the page.
+              */}
+              <div className="p-0 md:p-0 mt-4 flex-1 overflow-y-auto">
                 <Routes>
                   <Route path="/" element={<About />} />
                   <Route path="/projects" element={<Projects />} />
                   <Route path="/certificate" element={<Certificate />} />
+                  <Route path="/education" element={<Education />} />
+                  <Route path="/skills" element={<Skills />} />
                   <Route path="/contact" element={<Contact />} />
                 </Routes>
               </div>
             </Body>
           </div>
+
         </div>
       </div>
     </>

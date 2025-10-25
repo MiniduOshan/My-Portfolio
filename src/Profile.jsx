@@ -1,5 +1,5 @@
 import React from "react";
-import dp from "./assets/dp.png";
+import dp from "./assets/dp.png"; // This is your profile picture
 
 function Profile() {
   return (
@@ -9,23 +9,24 @@ function Profile() {
       {/* Image Section */}
       <img
         src={dp}
-        alt="Profile"
+        alt="Minidu Oshan" // Updated alt text
         className="w-full h-44 object-cover rounded-t-2xl"
       />
 
       {/* Body Section */}
       <div className="p-4 flex flex-col items-center text-center">
         <h2 className="text-lg font-semibold text-white drop-shadow-md">
-          John Doe
+          Minidu Oshan {/* Updated Name */}
         </h2>
         <p className="text-gray-200 text-sm mt-2 drop-shadow-sm">
-          Frontend Developer at TechCorp. Passionate about UI/UX and clean code.
+          {/* Updated Description */}
+          Fullstack Developer & UI/UX Designer. Passionate about Cloud, DevOps, and building complete web solutions.
         </p>
         <a
-          href="mailto:you@example.com"
+          href="#" // TODO: Add link to your CV PDF
           className="mt-4 px-4 py-2 bg-blue-500/70 backdrop-blur-sm text-white rounded-lg hover:bg-blue-600/70 transition shadow-md"
         >
-          Contact Me
+          Download CV
         </a>
       </div>
     </div>
