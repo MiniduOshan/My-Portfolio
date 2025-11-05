@@ -56,4 +56,8 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-github-pages@v4
+        #
+        # --- THIS IS THE FIX ---
+        # It should be 'actions/deploy-pages@v4'
+        #
+        uses: actions/deploy-pages@v4
