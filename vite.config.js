@@ -9,9 +9,10 @@ export default defineConfig({
     tailwindcss(), // Add the Tailwind plugin
   ],
   
-  // --- THIS 'base' PROPERTY IS SET FOR YOUR REPO ---
+  // --- THIS 'base' PROPERTY IS NOW FIXED ---
   //
-  // This is set based on your "My-Portfolio" repository name.
+  // Because you are using a custom domain (miniduoshan.me),
+  // your site is at the root directory. We must set 'base' to '/'
   //
-  base: '/My-Portfolio/',
+  base: '/',
 })
