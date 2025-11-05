@@ -1,104 +1,120 @@
-import React from "react";
-// Import the icons
-import {
-  FaGithub,
-  FaLinkedin,
-  FaEnvelope,
-  FaPhone,
-  FaMapMarkerAlt,
-} from "react-icons/fa";
+import React, { useState } from "react";
 
-// A reusable component for a contact detail item
-const ContactInfoItem = ({ icon, label, value, href }) => (
-  <a
-    href={href}
-    className="bg-white/10 p-4 rounded-lg border border-white/20 flex items-center gap-4
-    transition-all duration-300 hover:bg-white/20 hover:border-white/30"
-  >
-    <span className="text-purple-300 text-2xl">{icon}</span>
-    <div>
-      <p className="text-sm text-gray-300">{label}</p>
-      <p className="text-md font-semibold text-white">{value}</p>
-    </div>
-  </a>
-);
+const EMAIL = "miniduoshan23@gmail.com";
 
 const Contact = () => {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [errors, setErrors] = useState({});
+  const [sent, setSent] = useState(false);
+
+  const validate = () => {
+    const e = {};
+    if (!form.name.trim()) e.name = "Please enter your name.";
+    if (!form.email.trim()) e.email = "Please enter your email.";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))
+      e.email = "Enter a valid email.";
+    if (!form.message.trim()) e.message = "Please enter a message.";
+    setErrors(e);
+    return Object.keys(e).length === 0;
+  };
+
+  const handleChange = (ev) => {
+    const { id, value } = ev.target;
+    setForm((f) => ({ ...f, [id]: value }));
+    if (errors[id]) setErrors((e) => ({ ...e, [id]: undefined }));
+  };
+
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+    if (!validate()) return;
+
+    const subject = `Portfolio Contact from ${form.name}`;
+    const body =
+      `Name: ${form.name}\n` +
+      `Email: ${form.email}\n\n` +
+      `Message:\n${form.message}\n\n` +
+      `— sent from portfolio contact page`;
+
+    const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+    setSent(true);
+    setForm({ name: "", email: "", message: "" });
+  };
+
   return (
-    // --- FIXED: Removed 'min-h-screen' and added 'py-16' ---
-    <section className="flex flex-col items-center justify-center py-8 px-8 text-gray-100">
-      <h2 className="text-4xl font-bold mb-12 animate-fade-in">Get In Touch</h2>
+    <section className="flex flex-col items-center py-10 px-6 text-gray-100">
+      <h2 className="text-4xl font-bold mb-6">Get In Touch</h2>
+      <p className="text-gray-300 mb-10 text-center max-w-xl">
+        Have a question or a project in mind? Send me a message and I’ll get back to you.
+      </p>
 
-      <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-10">
-        {/* Left Side: Contact Info & Socials */}
-        <div className="flex flex-col justify-start">
-          <h3 className="text-3xl font-semibold mb-6">Contact Details</h3>
-          
-          {/* --- FIXED: Restyled contact details into visual cards --- */}
-          <div className="space-y-4 text-lg">
-            <ContactInfoItem
-              icon={<FaEnvelope />}
-              label="Email"
-              value=""
-              href="mailto:"
+      {/* single centered card */}
+      <div className="w-full max-w-xl bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-xl p-8">
+        <form onSubmit={handleSubmit} noValidate>
+          <div className="mb-4">
+            <label htmlFor="name" className="block text-sm font-medium text-gray-200 mb-2">
+              Name
+            </label>
+            <input
+              id="name"
+              type="text"
+              value={form.name}
+              onChange={handleChange}
+              className={`w-full p-3 bg-white/20 border rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400 ${
+                errors.name ? "border-red-400" : "border-white/30"
+              }`}
+              placeholder="Your name"
             />
-            <ContactInfoItem
-              icon={<FaPhone />}
-              label="Phone"
-              value=""
-              href="tel:"
-            />
-            <ContactInfoItem
-              icon={<FaMapMarkerAlt />}
-              label="Location"
-              value="Sri-Lanka"
-              href="#" // No link for location
-            />
+            {errors.name && <p className="text-red-300 text-sm mt-1">{errors.name}</p>}
           </div>
 
-          <h3 className="text-2xl font-semibold mb-4 mt-10">Find me on</h3>
-          {/* --- FIXED: Restyled social links to match theme --- */}
-          <div className="flex space-x-4">
-            <a
-              href="#" // TODO: Add your LinkedIn URL
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-5 py-3 bg-white/10 border border-white/20 text-white font-semibold rounded-lg shadow-lg hover:bg-white/20 transition-colors"
-            >
-              <FaLinkedin /> LinkedIn
-            </a>
-            <a
-              href="#" // TODO: Add your GitHub URL
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-5 py-3 bg-white/10 border border-white/20 text-white font-semibold rounded-lg shadow-lg hover:bg-white/20 transition-colors"
-            >
-              <FaGithub /> GitHub
-            </a>
+          <div className="mb-4">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-2 00 mb-2">
+              Email
+            </label>
+            <input
+              id="email"
+              type="email"
+              value={form.email}
+              onChange={handleChange}
+              className={`w-full p-3 bg-white/20 border rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400 ${
+                errors.email ? "border-red-400" : "border-white/30"
+              }`}
+              placeholder="your.email@example.com"
+            />
+            {errors.email && <p className="text-red-300 text-sm mt-1">{errors.email}</p>}
           </div>
-        </div>
 
-        {/* Right Side: Contact Form (already looks good) */}
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg shadow-xl p-8">
-          <form>
-            <div className="mb-4">
-              <label htmlFor="name" className="block text-sm font-medium text-gray-200 mb-2">Name</label>
-              <input type="text" id="name" className="w-full p-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400" placeholder="Your Name" />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="email" className="block text-sm font-medium text-gray-200 mb-2">Email</label>
-              <input type="email" id="email" className="w-full p-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400" placeholder="your.email@example.com" />
-            </div>
-            <div className="mb-6">
-              <label htmlFor="message" className="block text-sm font-medium text-gray-200 mb-2">Message</label>
-              <textarea id="message" rows="5" className="w-full p-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400" placeholder="Your message..."></textarea>
-            </div>
-            <button type="submit" className="w-full py-3 px-6 bg-purple-600 text-white font-bold rounded-lg shadow-lg hover:bg-purple-700 transition-colors">
-              Send Message
-            </button>
-          </form>
-        </div>
+          <div className="mb-6">
+            <label htmlFor="message" className="block text-sm font-medium text-gray-200 mb-2">
+              Message
+            </label>
+            <textarea
+              id="message"
+              rows="5"
+              value={form.message}
+              onChange={handleChange}
+              className={`w-full p-3 bg-white/20 border rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400 ${
+                errors.message ? "border-red-400" : "border-white/30"
+              }`}
+              placeholder="Your message..."
+            />
+            {errors.message && <p className="text-red-300 text-sm mt-1">{errors.message}</p>}
+          </div>
 
+          <button
+            type="submit"
+            className="w-full py-3 px-6 bg-purple-600 text-white font-bold rounded-lg shadow-lg hover:bg-purple-700 transition-colors"
+          >
+            Send Message
+          </button>
+
+          {sent && (
+            <p className="text-green-300 text-sm mt-3">
+              ✅ Message ready! Check your email app — it should open with your message prefilled.
+            </p>
+          )}
+        </form>
       </div>
     </section>
   );

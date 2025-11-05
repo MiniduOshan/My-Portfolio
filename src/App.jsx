@@ -10,8 +10,12 @@ import Projects from "./Pages/Projects";
 import ParallaxBackground from "./Components/ParallaxBackground";
 import Education from "./Pages/Education";
 import Skills from "./Pages/Skills";
+import MobileSectionsScroller from "./Components/MobileSectionsScroller";
+import { useIsMobile } from "./hooks/useIsMobile";
 
 function App() {
+  const isMobile = useIsMobile(); // <— switch UX by screen width
+
   return (
     <>
       <style>
@@ -28,47 +32,37 @@ function App() {
       <div className="relative min-h-screen">
         <ParallaxBackground />
 
-        {/* Flex container for profile and body (p-6 sets the 'gap' from viewport edge) */}
+        {/* Layout: left profile (sticky), right content (sticky) */}
         <div className="flex flex-col md:flex-row gap-6 p-6 relative z-10">
-          
-          {/* Profile Section (This is correct, stays sticky) */}
+          {/* Profile (sticky left column on desktop) */}
           <div className="w-full md:w-72 flex-shrink-0">
             <div className="sticky top-6">
               <Profile />
             </div>
           </div>
 
-          {/* Main Body Section 
-            FIX 1: Make this whole wrapper sticky and give it a fixed height.
-            'h-[calc(100vh-3rem)]' means 100% of viewport height minus the page padding (p-6 is 1.5rem * 2 = 3rem)
-          */}
+          {/* Main content area (sticky container with its own scroll) */}
           <div className="flex-1 sticky top-6 h-[calc(100vh-3rem)]">
-            {/* FIX 2: Pass classes to Body to make it a flex column 
-              that fills its new sticky parent (h-full).
-            */}
             <Body className="flex flex-col h-full">
-              
-              {/* Header is no longer sticky, it just sits at the top */}
               <Header />
 
-              {/* FIX 3: This is now the scrolling content area.
-                - 'mt-4' adds space below the header.
-                - 'flex-1' makes it fill all remaining vertical space.
-                - 'overflow-y-auto' makes THIS div scroll, not the page.
-              */}
-              <div className="p-0 md:p-0 mt-4 flex-1 overflow-y-auto">
-                <Routes>
-                  <Route path="/" element={<About />} />
-                  <Route path="/projects" element={<Projects />} />
-                  <Route path="/certificate" element={<Certificate />} />
-                  <Route path="/education" element={<Education />} />
-                  <Route path="/skills" element={<Skills />} />
-                  <Route path="/contact" element={<Contact />} />
-                </Routes>
-              </div>
+              {/* Mobile: stacked sections with snap; Desktop: routes */}
+              {isMobile ? (
+                <MobileSectionsScroller />
+              ) : (
+                <div className="p-0 md:p-0 mt-4 flex-1 overflow-y-auto">
+                  <Routes>
+                    <Route path="/" element={<About />} />
+                    <Route path="/projects" element={<Projects />} />
+                    <Route path="/certificate" element={<Certificate />} />
+                    <Route path="/education" element={<Education />} />
+                    <Route path="/skills" element={<Skills />} />
+                    <Route path="/contact" element={<Contact />} />
+                  </Routes>
+                </div>
+              )}
             </Body>
           </div>
-
         </div>
       </div>
     </>
