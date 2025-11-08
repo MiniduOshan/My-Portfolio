@@ -6,7 +6,7 @@ import {
   FaLinkedin,
   FaGithub,
 } from "react-icons/fa";
-import dp from "./assets/dp.png";
+import dp from "./assets/dp.jpg";
 import cvFile from "./assets/Minidu_Oshan_FullStack_Developer_CV_2025.pdf";
 
 const EMAIL = "miniduoshan23@gmail.com";

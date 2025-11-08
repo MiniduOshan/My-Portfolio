@@ -17,8 +17,10 @@ import {
   SiExpress,
   SiMongodb,
   SiC,
+  SiTailwindcss,
+  SiPrisma,
 } from "react-icons/si";
-import { GrCycle } from "react-icons/gr"; // For OOP
+import { TbSql } from "react-icons/tb";
 
 // A reusable card component for skills
 const SkillCard = ({ icon, skill, color }) => (
@@ -42,18 +44,14 @@ const SkillCard = ({ icon, skill, color }) => (
 
 const Skills = () => {
   return (
-    // --- FIXED: Reduced vertical padding to 'py-16' (from py-24) ---
     <section className="flex flex-col items-center justify-center py-8 px-8 text-gray-100">
-      {/* --- FIXED: Reduced margin-bottom to 'mb-10' (from mb-12) --- */}
       <h2 className="text-4xl font-bold mb-10 animate-fade-in">
         Technical Skills
       </h2>
 
-      {/* --- FIXED: Reduced space-y to 'space-y-6' (from space-y-8) --- */}
       <div className="w-full max-w-6xl space-y-2">
         {/* Frontend Section */}
         <div>
-          {/* --- FIXED: Reduced margin-bottom to 'mb-4' (from mb-5) --- */}
           <h3 className="text-2xl font-semibold text-cyan-300 mb-4 text-center md:text-left">
             Frontend
           </h3>
@@ -71,12 +69,16 @@ const Skills = () => {
             />
             <SkillCard icon={<FaHtml5 />} skill="HTML5" color="#E34F26" />
             <SkillCard icon={<FaCss3Alt />} skill="CSS3" color="#1572B6" />
+            <SkillCard
+              icon={<SiTailwindcss />}
+              skill="TailwindCSS"
+              color="#06B6D4"
+            />
           </div>
         </div>
 
         {/* Backend Section */}
         <div>
-          {/* --- FIXED: Reduced margin-bottom to 'mb-4' (from mb-5) --- */}
           <h3 className="text-2xl font-semibold text-green-300 mb-4 text-center md:text-left">
             Backend
           </h3>
@@ -86,25 +88,23 @@ const Skills = () => {
             <SkillCard icon={<FaJava />} skill="Java" color="#f89820" />
             <SkillCard icon={<FaPython />} skill="Python" color="#3776AB" />
             <SkillCard icon={<SiC />} skill="C" color="#A8B9CC" />
-            <SkillCard
-              icon={<GrCycle />}
-              skill="OOP"
-              color="#FFFFFF"
-            />
+            {/* Ballerina SkillCard removed */}
           </div>
         </div>
 
         {/* Databases & Tools Section */}
         <div>
-          {/* --- FIXED: Reduced margin-bottom to 'mb-4' (from mb-5) --- */}
           <h3 className="text-2xl font-semibold text-orange-300 mb-2 text-center md:text-left">
             Databases & Tools
           </h3>
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-5">
             <SkillCard icon={<SiMongodb />} skill="Mongo DB" color="#47A248" />
+            <SkillCard icon={<SiPrisma />} skill="Prisma" color="#2D3748" />
+            <SkillCard icon={<TbSql />} skill="SQL" color="#4479A1" />
             <SkillCard icon={<FaDocker />} skill="Docker" color="#2496ED" />
             <SkillCard icon={<FaGitAlt />} skill="Git" color="#F05032" />
             <SkillCard icon={<FaGithub />} skill="GitHub" color="#FFFFFF" />
+            
           </div>
         </div>
       </div>
