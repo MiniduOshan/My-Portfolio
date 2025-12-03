@@ -65,7 +65,7 @@ const Projects = () => {
           description="Developed a full-featured platform for managing students, instructors, and payments; integrated secure login, database-driven scheduling, and report generation."
           tech={["MERN", "Tailwind CSS"]}
           imgSrc={drivingSchoolImg}
-          projectUrl="#"
+          projectUrl="https://github.com/cycotechnolgies/DSMS_MiniProject"
         />
         <ProjectCard
           title="Code Cast News App"
@@ -86,21 +86,20 @@ const Projects = () => {
           description="Created a real-time delivery tracking system with REST API endpoints and location-based updates for courier management."
           tech={["Ballerina", "API"]}
           imgSrc={deliveryImg}
-          projectUrl="#"
+          projectUrl="https://github.com/MiniduOshan/Delivery-Tracking-System"
         />
                 <ProjectCard
           title="Library Management System (Web)"
           description="Automated book issuance and member tracking system reducing manual workload by 80%; implemented CRUD operations and SQL data management."
           tech={["PHP", "JavaScript", "MySQL"]}
           imgSrc={libraryWebImg}
-          projectUrl="#"
+          projectUrl="https://github.com/cycotechnolgies/LibararyManagementSystem"
         />
         <ProjectCard
           title="Library Management System (Desktop)"
           description="Desktop application for efficient book and user management with fine tracking and reporting tools."
           tech={["C#", "SQL"]}
           imgSrc={libraryDesktopImg}
-          projectUrl="#"
         />
         <ProjectCard
           title="React App Generator CLI"
