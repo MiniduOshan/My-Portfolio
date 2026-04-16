@@ -28,6 +28,8 @@ const About = () => {
         <p className="animate-fade-in delay-200">
           Motivated BICT undergraduate at the University of Colombo, certified Database Administrator, and freelance web designer with over 2 years
           of experience in developing responsive and dynamic web applications.
+          Currently working as an Intern Software Engineer at Fishifox Pvt Ltd,
+          gaining hands-on industry experience in software development.
           Skilled in MERN Stack, and UI/UX design, with a solid
           foundation in database management and backend development. Passionate
           about crafting efficient, user-focused software solutions.
@@ -40,7 +42,7 @@ const About = () => {
         <HighlightCard
           icon={<FaBriefcase />}
           title="Experience"
-          text="2+ Years Freelance"
+          text="Intern Software Engineer - Fishifox Pvt Ltd"
         />
         <HighlightCard
           icon={<FaCode />}

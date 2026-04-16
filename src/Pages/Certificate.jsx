@@ -116,6 +116,11 @@ const Certification = () => {
           credentialId="2025-27208"
           credential="https://www.credly.com/badges/a91fb0f6-34d8-4cc5-ae85-d69a2daa6fea/public_url"
         />
+        <CertCard
+          title="Red Hat Training: Getting Started with Linux Fundamentals"
+          issuer="Red Hat"
+          date="2026"
+        />
       </div>
     </section>
   );

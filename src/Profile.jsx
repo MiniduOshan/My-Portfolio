@@ -64,8 +64,9 @@ function Profile() {
       <div className="p-5 flex flex-col items-center text-center">
         <h2 className="text-lg font-semibold drop-shadow-sm">Minidu Oshan</h2>
         <p className="text-gray-200 text-xs mt-2 leading-relaxed max-w-[250px]">
-          Fullstack Developer & UI/UX Designer passionate about Cloud, DevOps,
-          and building complete web solutions.
+          Software Engineer and Database Administrator passionate about DevOps,
+          <br />
+          AI and ML.
         </p>
 
         <a

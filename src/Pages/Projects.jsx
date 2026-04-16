@@ -16,6 +16,13 @@ import todoImg from "../assets/todo-app.png";
 import calculator from "../assets/calculator.png";
 import quizeAppImg from "../assets/quizeApp.png";
 import cvMakerImg from "../assets/cv-maker.png";
+import garagesystem from "../assets/garagesystem.png";
+import multitredfileserver from "../assets/multitredfileserver.png";
+import tyre from "../assets/tyre.png";
+import aurion from "../assets/aurion.png";
+import financialtracker from "../assets/financialtracker.png";
+import lms from "../assets/lms.png";
+import crm from "../assets/crm.png";
 
 // --- Reusable project card component ---
 const ProjectCard = ({ title, description, tech, imgSrc, projectUrl }) => (
@@ -160,6 +167,90 @@ const Projects = () => {
           imgSrc={quizeAppImg}
           // imgSrc={placeholderImg}
           projectUrl="https://github.com/MiniduOshan/Quiz-App" // replace with your GitHub or live demo link
+        />
+        <ProjectCard
+          title="Garage Management System"
+          description="MERN-based platform to manage vehicles, service history, bookings, parts inventory, and customer records for garage operations."
+          tech={["MERN", "Tailwind CSS"]}
+          imgSrc={garagesystem}
+          projectUrl="#"
+        />
+        <ProjectCard
+          title="Library Management System (MERN)"
+          description="Full-stack LMS for tracking books, memberships, borrowing workflows, and admin analytics with role-based access."
+          tech={["MERN"]}
+          imgSrc={lms}
+          projectUrl="#"
+        />
+        <ProjectCard
+          title="CLI Task Manager"
+          description="Rust-powered command-line task manager with fast local storage, priority tags, and deadline management."
+          tech={["Rust", "CLI"]}
+          imgSrc={placeholderImg}
+          projectUrl="#"
+        />
+        <ProjectCard
+          title="RAG App with Ollama"
+          description="Document-aware retrieval-augmented generation app using Python, Flask, and Ollama for local AI-assisted Q&A."
+          tech={["Python", "Flask", "Ollama", "RAG"]}
+          imgSrc={placeholderImg}
+          projectUrl="#"
+        />
+        <ProjectCard
+          title="AI Chatbot (Flask)"
+          description="Conversational AI chatbot backend built with Flask, supporting context-aware interactions and API integration."
+          tech={["Python", "Flask", "AI"]}
+          imgSrc={placeholderImg}
+          projectUrl="#"
+        />
+        <ProjectCard
+          title="Academic Management System"
+          description="MERN application for managing students, courses, timetables, results, and faculty operations in one dashboard."
+          tech={["MERN"]}
+          imgSrc={placeholderImg}
+          projectUrl="#"
+        />
+        <ProjectCard
+          title="POS System for Shop"
+          description="Point-of-sale system built with Laravel for billing, inventory management, sales reports, and customer transactions."
+          tech={["PHP", "Laravel", "MySQL"]}
+          imgSrc={placeholderImg}
+          projectUrl="#"
+        />
+        <ProjectCard
+          title="Tyre Shop Management System"
+          description="Business system for tyre inventory, fitment scheduling, supplier tracking, and invoice generation."
+          tech={["Web App", "Management System"]}
+          imgSrc={tyre}
+          projectUrl="#"
+        />
+        <ProjectCard
+          title="Aurion Company Official Website"
+          description="Corporate website project focused on brand identity, service presentation, responsive layout, and contact funnels."
+          tech={["Frontend", "Corporate Website"]}
+          imgSrc={aurion}
+          projectUrl="#"
+        />
+        <ProjectCard
+          title="Financial Tracker"
+          description="Personal and business finance tracker for income, expenses, budgeting insights, and monthly analytics."
+          tech={["Finance", "Tracking", "Dashboard"]}
+          imgSrc={financialtracker}
+          projectUrl="#"
+        />
+        <ProjectCard
+          title="Multithread File Server"
+          description="Python/Flask file server with multithreaded request handling for concurrent uploads, downloads, and file management."
+          tech={["Python", "Flask", "Multithreading"]}
+          imgSrc={multitredfileserver}
+          projectUrl="#"
+        />
+        <ProjectCard
+          title="CRM System"
+          description="Customer relationship management platform for lead tracking, follow-ups, communication logs, and reporting."
+          tech={["Web App", "CRM"]}
+          imgSrc={crm}
+          projectUrl="#"
         />
       </div>
     </section>

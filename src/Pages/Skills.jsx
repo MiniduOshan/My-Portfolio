@@ -19,6 +19,7 @@ import {
   SiC,
   SiTailwindcss,
   SiPrisma,
+  SiRust,
 } from "react-icons/si";
 import { TbSql } from "react-icons/tb";
 
@@ -87,6 +88,7 @@ const Skills = () => {
             <SkillCard icon={<SiExpress />} skill="Express" color="#FFFFFF" />
             <SkillCard icon={<FaJava />} skill="Java" color="#f89820" />
             <SkillCard icon={<FaPython />} skill="Python" color="#3776AB" />
+            <SkillCard icon={<SiRust />} skill="Rust" color="#DEA584" />
             <SkillCard icon={<SiC />} skill="C" color="#A8B9CC" />
             {/* Ballerina SkillCard removed */}
           </div>
