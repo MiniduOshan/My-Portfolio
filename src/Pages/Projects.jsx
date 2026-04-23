@@ -246,6 +246,13 @@ const Projects = () => {
           projectUrl="#"
         />
         <ProjectCard
+          title="POS Sytem for Grocery Shop"
+          description="Point-of-sale system built with Laravel for billing, inventory management, sales reports, and customer transactions."
+          tech={["PHP", "Laravel", "MySQL"]}
+          imgSrc={pos.png}
+          projectUrl="http://143.244.138.137:8000/login"
+        />
+        <ProjectCard
           title="CRM System"
           description="Customer relationship management platform for lead tracking, follow-ups, communication logs, and reporting."
           tech={["Web App", "CRM"]}
