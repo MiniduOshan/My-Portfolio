@@ -23,6 +23,7 @@ import aurion from "../assets/aurion.png";
 import financialtracker from "../assets/financialtracker.png";
 import lms from "../assets/lms.png";
 import crm from "../assets/crm.png";
+import posImg from "../assets/pos.png";
 
 // --- Reusable project card component ---
 const ProjectCard = ({ title, description, tech, imgSrc, projectUrl }) => (
@@ -249,7 +250,7 @@ const Projects = () => {
           title="POS Sytem for Grocery Shop"
           description="Point-of-sale system built with Laravel for billing, inventory management, sales reports, and customer transactions."
           tech={["PHP", "Laravel", "MySQL"]}
-          imgSrc={pos.png}
+          imgSrc={posImg}
           projectUrl="http://143.244.138.137:8000/login"
         />
         <ProjectCard
