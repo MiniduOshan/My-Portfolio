@@ -10,7 +10,6 @@ import Projects from "./Pages/Projects";
 import ParallaxBackground from "./Components/ParallaxBackground";
 import Education from "./Pages/Education";
 import Skills from "./Pages/Skills";
-import MobileSectionsScroller from "./Components/MobileSectionsScroller";
 import { useIsMobile } from "./hooks/useIsMobile";
 
 function App() {
@@ -50,7 +49,16 @@ function App() {
               <Header />
 
               {isMobile ? (
-                <MobileSectionsScroller />
+                <div className="p-0 md:p-0 mt-4 flex-1 overflow-y-auto snap-y snap-mandatory scroll-smooth" style={{ WebkitOverflowScrolling: "touch" }}>
+                  <Routes>
+                    <Route path="/" element={<section id="about" className="snap-start min-h-[calc(100vh-6rem)] px-0 md:px-0"><About /></section>} />
+                    <Route path="/projects" element={<section id="projects" className="snap-start min-h-[calc(100vh-6rem)] px-0 md:px-0"><Projects /></section>} />
+                    <Route path="/certificate" element={<section id="certificate" className="snap-start min-h-[calc(100vh-6rem)] px-0 md:px-0"><Certificate /></section>} />
+                    <Route path="/education" element={<section id="education" className="snap-start min-h-[calc(100vh-6rem)] px-0 md:px-0"><Education /></section>} />
+                    <Route path="/skills" element={<section id="skills" className="snap-start min-h-[calc(100vh-6rem)] px-0 md:px-0"><Skills /></section>} />
+                    <Route path="/contact" element={<section id="contact" className="snap-start min-h-[calc(100vh-6rem)] px-0 md:px-0"><Contact /></section>} />
+                  </Routes>
+                </div>
               ) : (
                 <div className="p-0 md:p-0 mt-4 flex-1 overflow-y-auto">
                   <Routes>
