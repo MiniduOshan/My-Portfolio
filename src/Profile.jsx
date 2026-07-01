@@ -1,7 +1,6 @@
 import React from "react";
 import {
   FaEnvelope,
-  FaPhone,
   FaMapMarkerAlt,
   FaLinkedin,
   FaGithub,
@@ -10,8 +9,6 @@ import dp from "./assets/dp.jpg";
 import cvFile from "./assets/Minidu_Oshan_FullStack_Developer_CV_2025.pdf";
 
 const EMAIL = "miniduoshan23@gmail.com";
-const PHONE_RAW = "0765736796";
-const PHONE_INTL = "+94765736796";
 const LOCATION_LABEL = "Sri Lanka";
 const LINKEDIN_URL = "https://www.linkedin.com/in/miniduoshan";
 const GITHUB_URL = "https://github.com/MiniduOshan";
@@ -88,13 +85,6 @@ function Profile() {
             label="Email"
             value={EMAIL}
             href={`mailto:${EMAIL}`}
-            hideValue={true}
-          />
-          <GlassItem
-            icon={<FaPhone className="text-white text-sm" />}
-            label="Phone"
-            value={PHONE_RAW}
-            href={`tel:${PHONE_INTL}`}
             hideValue={true}
           />
           
